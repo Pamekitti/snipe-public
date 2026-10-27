@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "sha256": {
+    "datasets/samples/retirement-state.json": "b6f0eb91267870aa40c76503ec8272ec912b487d3531f1aa38ca87fda73c0f35",
+    "datasets/samples/v1-closed-positions.json": "16066e10770a19230301588dfead6999a8026a25ea69d535850f7ee38301d8d5",
+    "datasets/samples/v2-closed-positions.json": "d6d40669972a0d6cc32bf2e05c91ae620aabb53a6a6c67d01df710387b7a4e30"
+  }
+}

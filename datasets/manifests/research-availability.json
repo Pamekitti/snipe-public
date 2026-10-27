@@ -1,0 +1,609 @@
+{
+  "schema": 1,
+  "scope": "Actual local inventory on 2026-10-27. Counts indicate preserved files, not proof that every dependency of a study exists.",
+  "studies": [
+    {
+      "document": "v1/research/ACTIVITY_POLICY_PROTOCOL.md",
+      "title": "Activity and recovery research, 8 September 2026",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/recovery-policy-20260908",
+          "preservedPrivateMatches": 49
+        }
+      ]
+    },
+    {
+      "document": "v1/research/BACKTEST_FIDELITY_FINDINGS_20260911.md",
+      "title": "Backtest validation, 11 September 2026",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-backtest-standard-verified/fidelity.json",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-backtest-standard-verified/report.md",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/BACKTEST_STANDARD.md",
+      "title": "Backtest standard",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-backtest-standard-v1",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-policy-evaluation",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/CORE_PROTOCOL.md",
+      "title": "Consolidated research workflow",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/captures/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/EXECUTION_CLOCK_FINDINGS_20260913.md",
+      "title": "Sell execution and receipt completion are different clocks",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260913-execution-discrepancies-v1/report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260913-sell-clock-v1/freeze.json",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/EXIT_POLICY_AUDIT_PROTOCOL.md",
+      "title": "The decision is whether the adaptive take profit and 45-second maximum have a supported replacement. This is analysis only.",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/FILTER_POLICY_FINDINGS_20260915.md",
+      "title": "Filter policy findings, 15 September 2026",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260915-filter-policy-v1/results.json",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260915-filter-policy-v1/validation.json",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/FILTER_POLICY_PROTOCOL_20260915.md",
+      "title": "Filter policy comparison, 15 September 2026",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260915-filter-policy-v1/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/FOCUSED_GUARD_HANDOFF_20260914.md",
+      "title": "September 14 guard experiment handoff",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260914-1930-extension/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260914-bounded-grid-v1/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260914-focused-guard-v1",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260914-focused-guard-v1/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/cache.sqlite",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/FRESH_RECOVERY_IMPLEMENTATION_20260911.md",
+      "title": "Adaptive fresh recovery release",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-fresh-live/fidelity",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-fresh-live/september/report.md",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/GRADUATION_LAUNCH_PROTOCOL.md",
+      "title": "Launch-entry and graduation-hold audit, 2026-09-07",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/GRADUATION_PROTOCOL.md",
+      "title": "Graduation audit, 2026-09-07",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/GRID_SEARCH_20260912.md",
+      "title": "September guard and exit grid search",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260912-grid",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260912-grid/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/GRID_V2_IMPLEMENTATION.md",
+      "title": "September experiment rerun",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260912-grid-v2-isolated",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260912-grid-v5",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260912-grid-v5/account-parity.json",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/latest-grid",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/GUARD_AUDIT_PROTOCOL.md",
+      "title": "Guard audit protocol, 2026-09-07",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/GUARD_CHART_STANDARD.md",
+      "title": "Guard wallet charts and retention KPIs",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/GUARD_VISUAL_FINDINGS_20260911.md",
+      "title": "The replay supports investigating late recovery entries. It does not establish that removing the guard is profitable.",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-guard-visual-final/comparison.json",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-guard-visual-final/report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-guard-visual-final/score-passages.png",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/IMPLEMENTATION_STATUS.md",
+      "title": "Research engine implementation, 9 September 2026",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260909-guard-engine-final-v12/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/INDICATOR_FINDINGS_20260911.md",
+      "title": "Indicator experiment: better loss control, no validated replacement",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-indicator-fidelity-final/report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-indicator-results/indicator-24h.png",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-indicator-results/indicator-48h.png",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-indicator-results/report.md",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/INDICATOR_POLICY_PROTOCOL_20260911.md",
+      "title": "Indicator policy experiment, 11 September 2026",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/JOINT_POLICY_PROTOCOL.md",
+      "title": "Test the user's combined policy: use the existing profit guard's market score to choose stake, take profit, and maximum holding time at entry.",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "title": "The longer history supports matching the indicator to the traded launches",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-history-charts/history.png",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/automatic-cash-indicators-24h.png",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/automatic-profit-risk.png",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/automatic-report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/comparative-report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/final-selection/decision.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/supplemental-report.md",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_PROTOCOL_20260911.md",
+      "title": "Longer guard comparison, frozen before new candidate outcomes",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_EXTENSION_FINDINGS_20260908.md",
+      "title": "Expanded market guard results, 8 September 2026",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/market-guard-audit-20260908/snapshot.json.gz",
+          "preservedPrivateMatches": 1
+        },
+        {
+          "reference": "data/market-guard-extension-20260908/",
+          "preservedPrivateMatches": 15
+        },
+        {
+          "reference": "data/market-guard-extension-20260908/render_report.py",
+          "preservedPrivateMatches": 1
+        },
+        {
+          "reference": "data/market-guard-extension-20260908/results.json",
+          "preservedPrivateMatches": 1
+        },
+        {
+          "reference": "data/market-guard-extension-20260908/snapshot.json.gz",
+          "preservedPrivateMatches": 1
+        }
+      ]
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_EXTENSION_PROTOCOL.md",
+      "title": "Expanded market guard audit, 2026-09-08",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/market-guard-extension-20260908.",
+          "preservedPrivateMatches": 15
+        }
+      ]
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_FINDINGS_20260908.md",
+      "title": "Market guard research, 8 September 2026",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/market-guard-audit-20260908/",
+          "preservedPrivateMatches": 11
+        },
+        {
+          "reference": "data/market-guard-audit-20260908/comparison.png",
+          "preservedPrivateMatches": 1
+        },
+        {
+          "reference": "data/market-guard-audit-20260908/render_report.py",
+          "preservedPrivateMatches": 1
+        },
+        {
+          "reference": "data/market-guard-audit-20260908/results.json",
+          "preservedPrivateMatches": 1
+        },
+        {
+          "reference": "data/market-guard-audit-20260908/snapshot.json.gz",
+          "preservedPrivateMatches": 1
+        }
+      ]
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_LONGER_FINDINGS_20260908.md",
+      "title": "Longer backtest: more history weakens the case for three recovery updates",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/market-guard-longer-20260908/report.md",
+          "preservedPrivateMatches": 1
+        }
+      ]
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_LONGER_PROTOCOL.md",
+      "title": "One-week and two-week guard comparison",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_PROTOCOL.md",
+      "title": "Market guard persistence audit, 2026-09-08",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/market-guard-audit-20260908/snapshot.json.gz",
+          "preservedPrivateMatches": 1
+        }
+      ]
+    },
+    {
+      "document": "v1/research/POLICY_EVALUATION_FINDINGS_20260911.md",
+      "title": "None of the tested changes clears the frozen acceptance rule. The creator-tax floor excludes profitable opportunities. The repeat-loss pause has support. Stale reopening remains a source of losses.",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-policy-evaluation/report.md",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/POLICY_EVALUATION_PROTOCOL.md",
+      "title": "Policy evaluation, 11 September 2026",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-policy-evaluation/raw/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/README.md",
+      "title": "> Historical document. Snipe was retired on 25 October 2026. Operational statements below describe their original era. Start at the root README for this public edition.",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/activity-policy-20260908/",
+          "preservedPrivateMatches": 27
+        },
+        {
+          "reference": "data/research/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260909-guard-engine-final-v12/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-guard-visual-input",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-guard-visual-input/tail",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-indicator-input",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-indicator-input/tail",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-input/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-long-history-results-v2/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-policy-evaluation",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-policy-evaluation/replay",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-policy-evaluation/snapshot.json.gz",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260911-september-guards-v2/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260913-grid-speed-v1/",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260914-grid-speed-v3",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260914-grid-speed-v3/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/RECOVERY_POLICY_FINDINGS_20260908.md",
+      "title": "False recovery: +2 normal market reopening is the leading research candidate",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/recovery-policy-20260908/report.md",
+          "preservedPrivateMatches": 1
+        }
+      ]
+    },
+    {
+      "document": "v1/research/RECOVERY_POLICY_PROTOCOL.md",
+      "title": "Recovery policy experiment, 8 September 2026",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/recovery-policy-20260908/snapshot.json.gz",
+          "preservedPrivateMatches": 1
+        }
+      ]
+    },
+    {
+      "document": "v1/research/SEPTEMBER_GUARD_FINDINGS_20260911.md",
+      "title": "September guard results",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260911-september-guards-v2/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/SHORT_COVERAGE_FINDINGS_20260922.md",
+      "title": "Lighter coverage of the coins Snipe actually bought",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/short-coverage-2026-09-22T11-38-32-839Z/",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/SHORT_ONCE.md",
+      "title": "One-shot short tester",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/SIMULATION_ERROR_PROFILE_20260913.md",
+      "title": "Observed simulation error, 13 September 2026",
+      "status": "documentation-only",
+      "referencedInputs": [
+        {
+          "reference": "data/research/20260913-both-periods-v1",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260913-both-periods-v1/excluded.json",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260913-both-periods-v1/protocol.json",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260913-both-periods-v1/report.md",
+          "preservedPrivateMatches": 0
+        },
+        {
+          "reference": "data/research/20260913-both-periods-v1/run-freeze.json",
+          "preservedPrivateMatches": 0
+        }
+      ]
+    },
+    {
+      "document": "v1/research/STALE_POLICY_FINDINGS_20260908.md",
+      "title": "Market +2 stale-data decision",
+      "status": "partially reproducible",
+      "referencedInputs": [
+        {
+          "reference": "data/recovery-policy-20260908/stale-policy/",
+          "preservedPrivateMatches": 13
+        }
+      ]
+    },
+    {
+      "document": "v1/research/STALE_POLICY_PROTOCOL.md",
+      "title": "Stale-indicator comparison, 8 September 2026",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    },
+    {
+      "document": "v1/research/UNIFIED_EXECUTION_STANDARD.md",
+      "title": "Shared execution, paper accounts and market evidence",
+      "status": "protocol or code reference",
+      "referencedInputs": []
+    }
+  ]
+}

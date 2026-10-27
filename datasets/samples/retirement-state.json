@@ -1,0 +1,71 @@
+{
+  "schema": 2,
+  "at": 1792899321293,
+  "seq": 37303107,
+  "mode": "live",
+  "stopped": true,
+  "halted": true,
+  "openN": 0,
+  "walletWei": "125516224616319761",
+  "bookedPnlWei": "17543723220325624",
+  "priceUsd": 2361.805,
+  "priceSource": "coinbase",
+  "windows": [
+    {
+      "label": "1h",
+      "n": 0,
+      "pnlEth": 0,
+      "pnlUsd": 0,
+      "winPct": null,
+      "medianMultiple": null,
+      "medianHoldMs": null,
+      "medianN": 0
+    },
+    {
+      "label": "4h",
+      "n": 0,
+      "pnlEth": 0,
+      "pnlUsd": 0,
+      "winPct": null,
+      "medianMultiple": null,
+      "medianHoldMs": null,
+      "medianN": 0
+    },
+    {
+      "label": "12h",
+      "n": 0,
+      "pnlEth": 0,
+      "pnlUsd": 0,
+      "winPct": null,
+      "medianMultiple": null,
+      "medianHoldMs": null,
+      "medianN": 0
+    },
+    {
+      "label": "24h",
+      "n": 0,
+      "pnlEth": 0,
+      "pnlUsd": 0,
+      "winPct": null,
+      "medianMultiple": null,
+      "medianHoldMs": null,
+      "medianN": 0
+    },
+    {
+      "label": "7d",
+      "n": 0,
+      "pnlEth": 0,
+      "pnlUsd": 0,
+      "winPct": null,
+      "medianMultiple": null,
+      "medianHoldMs": null,
+      "medianN": 0
+    }
+  ],
+  "provenance": "Final captured dashboard report on 2026-10-25. Point-in-time state; not a lifetime performance certificate.",
+  "recordedRisk": {
+    "walletRealizedWei": "17543723220325624",
+    "walletGasWei": "1734707249788000",
+    "walletPeakWei": "19194794136581959"
+  }
+}

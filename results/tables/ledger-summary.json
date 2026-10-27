@@ -1,0 +1,35 @@
+{
+  "source": "Sanitized retirement ledger exports, 2026-10-25",
+  "v1": {
+    "n": 2551,
+    "sumWei": "248788949749620711",
+    "meanEth": "0.00009752604851023940062720501764",
+    "medianEth": "-0.000113676423932",
+    "sampleSdEth": "0.005388742346669239427192633724",
+    "wins": 906,
+    "losses": 1623,
+    "zeros": 22
+  },
+  "v1MissingCashOrTime": 0,
+  "v2PositionDeltaExcludingWalletGas": {
+    "n": 1693,
+    "sumWei": "-37331048463491416",
+    "meanEth": "-0.00002205023535941607560543414058",
+    "medianEth": "-0.00005442248946085",
+    "sampleSdEth": "0.001664201609580315172130276835",
+    "wins": 748,
+    "losses": 945,
+    "zeros": 0
+  },
+  "v2Abandonments": 5,
+  "retirement": {
+    "walletWei": "125516224616319761",
+    "openPositions": 0,
+    "recordedRisk": {
+      "walletRealizedWei": "17543723220325624",
+      "walletGasWei": "1734707249788000",
+      "walletPeakWei": "19194794136581959"
+    }
+  },
+  "warning": "V1 and V2 use different accounting bases and periods. Do not add these totals or label position deltas as wallet profit. Recorded risk is an accounting epoch, not lifetime cash."
+}

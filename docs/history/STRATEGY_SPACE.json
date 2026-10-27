@@ -1,0 +1,107 @@
+{
+  "_readme": "Every knob that can change what the bot does, what it is set to, and how much evidence is behind it. status: FITTED = measured on held-out data; MEASURED = a property of the venue, not a choice; ASSUMED = a guess nobody has tested; DEAD = present in code but unreachable.",
+  "_asOf": "2026-08-18T11:20Z",
+  "_dataset": "fresh window, blocks 38166269-39657456, 2373 ETH launches, ~43h",
+
+  "entry": {
+    "entryDelayMs": {
+      "value": 2000, "unit": "ms after the launch block timestamp", "status": "MEASURED",
+      "why": "The snipe tax is 4 discrete plateaus keyed on WHOLE elapsed seconds: 9700 / 618 / 19 / 0 bps. Second 2 costs 19bps. Second 1 costs 618bps, 32x more.",
+      "tested": "block offsets 0-30", "sensitivity": "CLIFF, not a curve. Landing 1s early costs ~6% of the position. Do not tune this like a continuous parameter.",
+      "liveEvidence": "21 of 21 fills landed on the 19bps band despite filling anywhere from block 13 to 25"
+    },
+    "entryFallbackLateMs": {"value": 600, "unit": "ms", "status": "ASSUMED", "why": "only used if the sequencer feed is down; deliberately aims late because overshooting costs 19bps and undershooting costs 618bps", "tested": "never, no feed outage has happened live"}
+  },
+
+  "selection": {
+    "_note": "This is where the money is. The exit reshapes returns; the filter decides whether there is anything to reshape. Every signal here is attacker-controlled and must be re-tested weekly.",
+    "minDevBuyWei": {
+      "value": "0.10 ETH", "status": "FITTED", "tested": [0.02, 0.05, 0.08, 0.10, 0.12, 0.15, 0.20, 0.30],
+      "heldOutDoseResponse": {
+        "0.02": {"mean": 5.52, "median": -1.94, "win": 43.0, "launchesPerHour": 23.2},
+        "0.05": {"mean": 7.07, "median": 0.06, "win": 50.2, "launchesPerHour": 16.5},
+        "0.08": {"mean": 9.34, "median": 4.53, "win": 57.5, "launchesPerHour": 11.6},
+        "0.10": {"mean": 9.03, "median": 4.29, "win": 58.2, "launchesPerHour": 9.5},
+        "0.20": {"mean": 7.48, "median": 5.78, "win": 61.5, "launchesPerHour": 5.7},
+        "0.30": {"mean": 9.09, "median": 5.80, "win": 65.7, "launchesPerHour": 4.2}
+      },
+      "sensitivity": "broad plateau. Mean flat 0.08-0.30; median and win rate keep climbing as it rises, trade count falls. Raising it buys consistency with volume.",
+      "warning": "attacker-controlled. A launcher can fake their own dev buy for the cost of the buy itself, which they get back. It survives measurement, it is not honest."
+    },
+    "maxPriorLaunches": {
+      "value": 0, "unit": "reject a deployer who has launched before", "status": "FITTED",
+      "evidence": "dev>=0.05 on a REPEAT deployer scores -8.15% held out, vs +7.07% on a first-timer. Serial launchers are negative in every era measured.",
+      "tested": [0, 1, 2, "unlimited"], "sensitivity": "large, and the sign flips. This is the single strongest filter we have."
+    },
+    "maxCreatorTaxBps": {"value": 100, "status": "MEASURED", "why": "creator tax is charged on both legs; above 100bps the round trip cannot clear the fees", "tested": "0-1000bps"}
+  },
+
+  "selectionAvailableButUnused": {
+    "_note": "Decoded from launch calldata at +0s so all are legal filters. None are currently in the book. The bundle/twitter signals were IN the book until 2026-08-17 and were farmed out: bands scoring +19%/+47% on Aug 13-16 scored -2.8%/-10% days later.",
+    "exemptions": {"meaning": "count of snipe-tax-exempt wallets the creator pre-registered, a 'bundle'", "status": "DELIBERATELY REMOVED", "why": "free for the launcher to fake, and they scaled it"},
+    "hasTwitter": {"status": "DELIBERATELY REMOVED", "why": "same"},
+    "hasWebsite": {"status": "UNTESTED on the repaired dataset"},
+    "hasTelegram": {"status": "UNTESTED on the repaired dataset"},
+    "descriptionLen": {"status": "UNTESTED on the repaired dataset"},
+    "buybackEnabled": {"status": "UNTESTED on the repaired dataset"},
+    "logo": {"status": "UNTESTED"},
+    "launchDensity": {"meaning": "how many coins launched in the prior 10 minutes", "status": "UNTESTED on the repaired dataset", "hypothesis": "a crowded minute means more rival snipers per coin"}
+  },
+
+  "exit": {
+    "takeProfitMultiple": {
+      "value": 1.21, "unit": "multiple of the entry mark (bot units)", "simEquivalent": 1.20,
+      "status": "FITTED", "tested": [1.05, 1.10, 1.15, 1.20, 1.25, 1.30, 1.35, 1.40, 1.50, 1.60, 1.75, 2.00, 2.50],
+      "why": "Two independent methods agree. (1) Walk-forward: +20% is the last level with a positive median AND >52% win rate in all 5 consecutive time folds. (2) Path anatomy: continuation collapses from 83% to 61% at exactly +20%, while the give-it-all-back rate is FLAT at 21-26% at every level, so height never buys safety.",
+      "sensitivity": "The MEAN-optimal value is unstable: 5 folds picked 1.20, 2.00, 1.35, 1.30, 1.75. The CONSISTENCY ranking is monotone and stable in all 5 folds. Rank on consistency; the mean is noise here.",
+      "doNotAdaptivelyRefit": "Refitting this on a 2h/4h/6h/12h/24h lookback and trading the next 2h beats a fixed 1.20 on mean (+6.5 to 7.4 vs +5.7) but LOSES on median (+1.2 to +2.9 vs +4.3). The refit keeps chasing 1.5-2.0 off jackpots in the fit window. Leave it fixed."
+    },
+    "maxHoldMs": {
+      "value": 45000, "status": "FITTED", "tested": [5, 10, 15, 20, 30, 45, 60, 90, 120, 300],
+      "sensitivity": "broad plateau 20-45s; falls off hard past 60s. 90s and 120s are catastrophic (median -9% to -11%).",
+      "why": "the coin lifecycle compressed when the farms took over. Median share of own peak ETH at t=120s went from 74% (organic era) to 7% (now).",
+      "warning": "if farms dump earlier the plateau slides LEFT. Re-measure weekly."
+    },
+    "hardStopMultiple": {"value": 0.5, "status": "ASSUMED", "why": "tail insurance, deliberately loose. Fired 22 times in 1548 trades for a 0.06pp cost.", "sensitivity": "near zero. Stop-loss sweeps 0.80-0.97 all COST mean and barely help the median: losses here are slow bleed, not crashes."},
+    "graduationExitAt": {"value": 0.12, "unit": "fraction of sellable supply left", "status": "MEASURED", "why": "at zero the curve refuses sells and the position cannot be exited at any price"},
+    "trailPct": {"value": null, "status": "DELETED 2026-08-18", "why": "armed at +20% and fired 50% off the peak. Fired ONCE in 656 simulated trades, and a +21% take profit leaves no reachable band between arm and sell. A safety net that cannot fire is worse than none because it reads like one."},
+    "armAtMultiple": {"value": null, "status": "DELETED 2026-08-18", "why": "same"}
+  },
+
+  "exitShapesRejected": {
+    "stopLoss": {"tested": [0.80, 0.85, 0.90, 0.93, 0.95, 0.97], "result": "all cost mean, none improved the median meaningfully"},
+    "partialScaleOut": {"tested": ["70%@1.15+30%@1.40", "70%@1.20+30%@1.60", "50%@1.15+50%@1.60", "80%@1.15+20%@2.00", "70%@1.15+trail20%"], "result": "best was 70%@1.20+30%@1.60, worst-fold mean +4.10 vs +3.57 for the simple rule. Rejected: does not pay for a second sell tx, a second failure mode, and a partial-fill state the recovery path would have to learn."},
+    "tightTrails": {"tested": ["arm1.05 back10%", "arm1.10 back10/15%", "arm1.15 back15%", "arm1.20 back20/30%", "arm1.30 back20%"], "result": "all worse than a plain take profit on median and win rate"}
+  },
+
+  "sizing": {
+    "tradeSizeEth": {"value": 0.005, "status": "ASSUMED", "envVar": "TRADE_SIZE_ETH", "note": "pilot size, deliberately small. P&L peaks near 0.02 and goes negative by 0.05 because our own buy moves the curve."},
+    "maxTradeSizeEth": {"value": 0.02, "status": "FITTED", "why": "hard ceiling: own-impact on a 1.68 ETH virtual reserve"},
+    "bankrollEth": {"value": 0.0728, "status": "MEASURED", "envVar": "BANKROLL_ETH", "note": "set to the actual wallet balance on 2026-08-18. Was 0.0796, a stale constant."},
+    "maxConcurrent": {"value": 14, "status": "ASSUMED", "note": "not binding in practice: at 9.5 launches/h and a 45s hold, concurrency rarely exceeds 3"}
+  },
+
+  "risk": {
+    "maxDrawdownUsd": {"value": 75, "status": "PRE-COMMITTED", "measuredTwoWays": ["chain: peak flat wallet balance vs current flat balance, survives restarts", "session: realized P&L rebuilt from receipts at boot"], "currentUsage": "$14.58 of $75"},
+    "ethUsd": {"value": 2145, "envVar": "ETHUSD", "status": "ASSUMED", "note": "ONE price for the whole tree: bot, monitors, and research all read this env var. Three different values used to coexist."},
+    "maxLogsStalenessMs": {"value": 3000, "status": "ASSUMED", "why": "no entries while the authoritative log stream is stale"},
+    "maxOverlayAgeMs": {"value": 1500, "status": "ASSUMED"}
+  },
+
+  "executionMeasured": {
+    "_note": "not choices, measured properties. Listed because they set the floor every strategy has to clear.",
+    "roundTripCostPct": {"value": "~2-4%", "components": "100bps curve fee each leg + creator tax + our own price impact + gas", "implication": "the median coin must move more than this or no exit rule can save it"},
+    "gasBurnEth": {"buy": 2.0e-6, "sell": 1.6e-6, "source": "40 live receipts at 0.0200 gwei effective"},
+    "fillLatency": {"value": "~0.9s from exit trigger to fill", "impact": "NONE material: take-profit mean moves +5.33 to +6.04 as lag goes 0.2s to 3.0s"},
+    "buyRevertRate": {"value": 0.095, "source": "2 of 21 live", "cost": "gas only"},
+    "missRate": {"value": 0.03, "source": "live entered 27 of 28 in-book launches"},
+    "blockTime": {"value": "~100ms", "measured": "10.0 blocks/sec"}
+  },
+
+  "simFrictions": {
+    "_note": "sim-only knobs. Calibrated so the sim reproduces live: on the 36 coins actually traded the sim said -6.03% and live delivered -3.05%.",
+    "comp": {"value": 0, "meaning": "number of rival bots entering my block at my size", "calibration": "0 reproduced live to -0.45pp; 2 did not"},
+    "haircut": {"value": 0.0, "meaning": "fraction shaved off post-entry buy flow", "calibration": "0; a 0.10 haircut was the single largest source of sim error at $4.39 of a $7.24 gap"},
+    "exitLag": {"value": 2, "unit": "blocks", "note": "0.2s; results insensitive out to 30 blocks"}
+  }
+}

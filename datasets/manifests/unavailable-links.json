@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "note": "Original references retained explicitly as unavailable artifacts instead of broken public links.",
+  "references": [
+    {
+      "document": "docs/GUARD_AUDIT_2026-09-07.md",
+      "label": "Conditional guard comparison",
+      "originalTarget": "research/guard-audit-20260907.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "Desktop",
+      "originalTarget": "dashboard-preview/refined-desktop.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "375 px phone",
+      "originalTarget": "dashboard-preview/refined-phone-375.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "414 px phone",
+      "originalTarget": "dashboard-preview/refined-phone-414.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "Missing-market scenario",
+      "originalTarget": "dashboard-preview/refined-no-market.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "recovery scenario",
+      "originalTarget": "dashboard-preview/refined-recovery.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "Deployed desktop",
+      "originalTarget": "dashboard-preview/deployed-desktop.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "deployed phone",
+      "originalTarget": "dashboard-preview/deployed-phone-375.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "Compact desktop",
+      "originalTarget": "dashboard-preview/compact-desktop.png"
+    },
+    {
+      "document": "docs/DASHBOARD_QA.md",
+      "label": "compact phone",
+      "originalTarget": "dashboard-preview/compact-phone-375.png"
+    },
+    {
+      "document": "docs/PROVIDER_AND_REVERT_AUDIT_2026-09-07.md",
+      "label": "Snapshot, exact rows and sample evidence",
+      "originalTarget": "../v1/data/provider-audit/audit-2026-09-07.json"
+    },
+    {
+      "document": "docs/EXIT_POLICY_ANALYSIS_2026-09-07.md",
+      "label": "Paired clock comparison and real exit costs",
+      "originalTarget": "research/exit-policy-audit-20260907.png"
+    },
+    {
+      "document": "docs/JOINT_POLICY_ANALYSIS_2026-09-07.md",
+      "label": "Joint profit and drawdown comparison",
+      "originalTarget": "research/joint-policy-audit-20260907.png"
+    },
+    {
+      "document": "docs/DASHBOARD_SIMPLE_HISTORY_QA.md",
+      "label": "live phone",
+      "originalTarget": "dashboard-preview/simple-history/live-phone-375.png"
+    },
+    {
+      "document": "docs/DASHBOARD_SIMPLE_HISTORY_QA.md",
+      "label": "live desktop",
+      "originalTarget": "dashboard-preview/simple-history/live-desktop.png"
+    },
+    {
+      "document": "docs/DASHBOARD_SIMPLE_HISTORY_QA.md",
+      "label": "missing paper",
+      "originalTarget": "dashboard-preview/simple-history/phone-missing-paper.png"
+    },
+    {
+      "document": "docs/PROVIDER_RELIABILITY_2026-09-07.md",
+      "label": "Activation and monitoring evidence",
+      "originalTarget": "../v1/data/provider-audit/reliability-activation-2026-09-07.json"
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_FINDINGS_20260908.md",
+      "label": "Conditional profit, drawdown and missing-fill sensitivity for the current rule and four alternatives",
+      "originalTarget": "../data/market-guard-audit-20260908/comparison.png"
+    },
+    {
+      "document": "v1/research/MARKET_GUARD_LONGER_FINDINGS_20260908.md",
+      "label": "full report",
+      "originalTarget": "../data/market-guard-longer-20260908/report.md"
+    },
+    {
+      "document": "v1/research/POLICY_EVALUATION_FINDINGS_20260911.md",
+      "label": "Full report, required time bins and comparison tables",
+      "originalTarget": "../data/research/20260911-policy-evaluation/report.md"
+    },
+    {
+      "document": "v1/research/FILTER_POLICY_FINDINGS_20260915.md",
+      "label": "Machine-readable results",
+      "originalTarget": "../data/research/20260915-filter-policy-v1/results.json"
+    },
+    {
+      "document": "v1/research/FILTER_POLICY_FINDINGS_20260915.md",
+      "label": "Validation",
+      "originalTarget": "../data/research/20260915-filter-policy-v1/validation.json"
+    },
+    {
+      "document": "v1/research/SIMULATION_ERROR_PROFILE_20260913.md",
+      "label": "Full study report",
+      "originalTarget": "../data/research/20260913-both-periods-v1/report.md"
+    },
+    {
+      "document": "v1/research/SIMULATION_ERROR_PROFILE_20260913.md",
+      "label": "Frozen run",
+      "originalTarget": "../data/research/20260913-both-periods-v1/run-freeze.json"
+    },
+    {
+      "document": "v1/research/SIMULATION_ERROR_PROFILE_20260913.md",
+      "label": "protocol",
+      "originalTarget": "../data/research/20260913-both-periods-v1/protocol.json"
+    },
+    {
+      "document": "v1/research/SIMULATION_ERROR_PROFILE_20260913.md",
+      "label": "unreconciled labels",
+      "originalTarget": "../data/research/20260913-both-periods-v1/excluded.json"
+    },
+    {
+      "document": "v1/research/RECOVERY_POLICY_FINDINGS_20260908.md",
+      "label": "Full report, tables, chart and validation",
+      "originalTarget": "../data/recovery-policy-20260908/report.md"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "final selection and four-KPI line charts",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/final-selection/decision.md"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Actual cash history",
+      "originalTarget": "../data/research/20260911-history-charts/history.png"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Automatic profit and risk",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/automatic-profit-risk.png"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Automatic cash and indicators, latest 24 hours",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/automatic-cash-indicators-24h.png"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Automatic candidate behavior and tables",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/automatic-report.md"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Recorded-control comparison and all 12 scenarios",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/comparative-report.md"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Continuous accounts from different starting dates",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/report.md"
+    },
+    {
+      "document": "v1/research/LONG_HISTORY_FINDINGS_20260911.md",
+      "label": "Publication stresses, chronological checks, and bins",
+      "originalTarget": "../data/research/20260911-long-history-results-v2/supplemental-report.md"
+    },
+    {
+      "document": "v1/research/BACKTEST_FIDELITY_FINDINGS_20260911.md",
+      "label": "scorecard",
+      "originalTarget": "../data/research/20260911-backtest-standard-verified/report.md"
+    },
+    {
+      "document": "v1/research/BACKTEST_FIDELITY_FINDINGS_20260911.md",
+      "label": "machine-readable artifact",
+      "originalTarget": "../data/research/20260911-backtest-standard-verified/fidelity.json"
+    },
+    {
+      "document": "v1/research/EXECUTION_CLOCK_FINDINGS_20260913.md",
+      "label": "full report",
+      "originalTarget": "../data/research/20260913-execution-discrepancies-v1/report.md"
+    },
+    {
+      "document": "v1/research/EXECUTION_CLOCK_FINDINGS_20260913.md",
+      "label": "sell-clock freeze",
+      "originalTarget": "../data/research/20260913-sell-clock-v1/freeze.json"
+    },
+    {
+      "document": "v1/research/INDICATOR_FINDINGS_20260911.md",
+      "label": "full report",
+      "originalTarget": "../data/research/20260911-indicator-results/report.md"
+    },
+    {
+      "document": "v1/research/INDICATOR_FINDINGS_20260911.md",
+      "label": "Account cash, indicators, evidence age and actual simulated admissions over 48 hours",
+      "originalTarget": "../data/research/20260911-indicator-results/indicator-48h.png"
+    },
+    {
+      "document": "v1/research/INDICATOR_FINDINGS_20260911.md",
+      "label": "24-hour chart",
+      "originalTarget": "../data/research/20260911-indicator-results/indicator-24h.png"
+    },
+    {
+      "document": "v1/research/INDICATOR_FINDINGS_20260911.md",
+      "label": "cash-fidelity validation",
+      "originalTarget": "../data/research/20260911-indicator-fidelity-final/report.md"
+    },
+    {
+      "document": "v1/research/GUARD_VISUAL_FINDINGS_20260911.md",
+      "label": "Full timeline and tables",
+      "originalTarget": "../data/research/20260911-guard-visual-final/report.md"
+    },
+    {
+      "document": "v1/research/GUARD_VISUAL_FINDINGS_20260911.md",
+      "label": "Score passages",
+      "originalTarget": "../data/research/20260911-guard-visual-final/score-passages.png"
+    },
+    {
+      "document": "v1/research/GUARD_VISUAL_FINDINGS_20260911.md",
+      "label": "Frozen results",
+      "originalTarget": "../data/research/20260911-guard-visual-final/comparison.json"
+    }
+  ]
+}
