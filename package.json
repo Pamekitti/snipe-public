@@ -1,0 +1,18 @@
+{
+  "name": "snipe-case-study",
+  "private": true,
+  "type": "module",
+  "license": "ISC",
+  "scripts": {
+    "setup": "npm ci --prefix v1 && npm ci --prefix v2 && npm ci --prefix research",
+    "test": "npm test --prefix v1 && npm test --prefix v2",
+    "typecheck": "npm run typecheck --prefix v1 && npm run typecheck --prefix v2 && node v1/node_modules/typescript/bin/tsc --noEmit -p v1/research/tsconfig.json && node v2/node_modules/typescript/bin/tsc --noEmit -p demo/tsconfig.json",
+    "results:build": "python3 scripts/build-results.py",
+    "demo:build": "node v2/node_modules/tsx/dist/cli.mjs demo/build.ts",
+    "demo": "python3 scripts/serve-demo.py",
+    "check:publication": "python3 scripts/check-publication.py"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

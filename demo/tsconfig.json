@@ -1,0 +1,5 @@
+{
+  "extends": "../v2/tsconfig.json",
+  "compilerOptions": { "typeRoots": ["../v2/node_modules/@types"] },
+  "include": ["build.ts"]
+}

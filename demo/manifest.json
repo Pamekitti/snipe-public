@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "sourceCaptured": "2026-10-25",
+  "cases": [
+    {
+      "id": "active",
+      "title": "Trading history · 19 Sep 2026",
+      "at": 1789862399000,
+      "missing": false
+    },
+    {
+      "id": "retired",
+      "title": "Retired · 25 Oct 2026",
+      "at": 1792899321293,
+      "missing": false
+    },
+    {
+      "id": "missing",
+      "title": "Missing-data interface fixture",
+      "at": 1792899321293,
+      "missing": true
+    }
+  ],
+  "books": [
+    "untaxed",
+    "taxed"
+  ],
+  "windows": [
+    "1h",
+    "4h",
+    "12h",
+    "24h",
+    "3d",
+    "7d"
+  ],
+  "views": 36,
+  "tradingControls": false,
+  "networkRequired": false,
+  "basis": "Stored position deltas, excluding separately booked wallet gas. Missing observer data stays missing."
+}
