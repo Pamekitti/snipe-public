@@ -1,6 +1,6 @@
 # Publication preparation checks
 
-This is a local review candidate prepared on 27 October 2026. It has not been pushed, published, or connected to a remote repository.
+This edition was prepared and verified on 27 October 2026 before publication. The checks below describe the reviewed publication candidate.
 
 ## Current software checks
 
