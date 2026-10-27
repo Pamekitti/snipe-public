@@ -1,0 +1,464 @@
+[
+  {
+    "id": "hold-20",
+    "holdMs": 20000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-25",
+    "holdMs": 25000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-30",
+    "holdMs": 30000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-35",
+    "holdMs": 35000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-40",
+    "holdMs": 40000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-45",
+    "holdMs": 45000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-50",
+    "holdMs": 50000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-60",
+    "holdMs": 60000,
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "progress-30",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": true,
+    "changes": 0
+  },
+  {
+    "id": "hold-15",
+    "holdMs": 15000,
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "hold-55",
+    "holdMs": 55000,
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "hold-65",
+    "holdMs": 65000,
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-0",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-1",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-2",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 5000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-3",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 15000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-4",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 5000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-5",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 15000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-6",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-7",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 1
+  },
+  {
+    "id": "progress-neighbor-8",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 5000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-9",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 15000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-10",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 10000,
+      "lookbackMs": 5000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-11",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 10000,
+      "lookbackMs": 15000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-12",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-13",
+    "holdMs": 25000,
+    "progressHold": {
+      "initialMs": 25000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-14",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 5000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-15",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 15000,
+      "lookbackMs": 10000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-16",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 10000,
+      "lookbackMs": 5000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-17",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 10000,
+      "lookbackMs": 15000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-18",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-19",
+    "holdMs": 35000,
+    "progressHold": {
+      "initialMs": 35000,
+      "stepMs": 10000,
+      "lookbackMs": 10000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-20",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 5000,
+      "lookbackMs": 5000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-21",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 5000,
+      "lookbackMs": 15000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-22",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 5000,
+      "lookbackMs": 10000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-23",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 5000,
+      "lookbackMs": 10000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-24",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 15000,
+      "lookbackMs": 5000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-25",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 15000,
+      "lookbackMs": 15000,
+      "maximumMs": 60000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-26",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 15000,
+      "lookbackMs": 10000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-27",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 15000,
+      "lookbackMs": 10000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-28",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 5000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-29",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 5000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-30",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 15000,
+      "maximumMs": 55000
+    },
+    "core": false,
+    "changes": 2
+  },
+  {
+    "id": "progress-neighbor-31",
+    "holdMs": 30000,
+    "progressHold": {
+      "initialMs": 30000,
+      "stepMs": 10000,
+      "lookbackMs": 15000,
+      "maximumMs": 65000
+    },
+    "core": false,
+    "changes": 2
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "modelHash": "6690f186801b2974128ae3c0180517a36108b4b3847c5493f3ff4c4ee5e5d056",
+  "curveHash": "cb0b01624e637b88879e301a0b62a086d7d36bed8f89ca1a71e9a47abf35f034",
+  "arithmeticPassed": true,
+  "sourceVerification": "partial",
+  "historicalAccuracy": "failed",
+  "prospectiveValidation": "unvalidated",
+  "reportSha256": "17257b88b60664a22ec1905aacd9bb5ea5ac1fc09c185dc0ac0e9ad637cf306f",
+  "frozenAt": "2026-09-13T14:34:31.868Z"
+}

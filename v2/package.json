@@ -1,0 +1,29 @@
+{
+  "name": "snipe-v2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "monitor": "tsx tools/monitor.ts",
+    "start": "tsx main.ts",
+    "genesis": "tsx tools/genesis.ts",
+    "replay-proof": "tsx tools/replay-proof.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "smol-toml": "^1.8.0",
+    "undici": "^8.10.0",
+    "viem": "^2.55.17",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.2.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  },
+  "license": "ISC"
+}

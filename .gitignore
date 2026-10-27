@@ -1,0 +1,21 @@
+**/node_modules/
+**/__pycache__/
+*.pyc
+.DS_Store
+**/.env
+**/.env.*
+!**/.env.example
+**/data/
+**/logs/
+**/dist/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.pem
+*.key
+*.aesgcm
+*.bundle
+
+# SQLite artifacts created by historical in-memory test harnesses
+**/:memory:*

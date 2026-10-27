@@ -1,0 +1,308 @@
+# The strategy spec.
+#
+# Every number here came from the running bot on 2026-09-16, not from a default. Where a
+# value has a reason, the reason is beside it, because a number with no argument behind it is
+# a number nobody dares change.
+#
+# WHAT IS NOT IN THIS FILE. Secrets live in .env and nowhere else. The three runtime switches
+# (halt, size, broadcast) are not here either: they are the things you change at 3am, alone,
+# without review, to stop losing money. Everything in this file is reviewed and versioned.
+#
+# Changing this file emits a `config-applied` event onto the tape, so a replay is configured
+# exactly as the run it replays. There is no second path by which a value reaches a decision.
+
+spec_version = 2
+
+# ---------------------------------------------------------------------------
+# Simulation calibration
+# ---------------------------------------------------------------------------
+# Fitted trade by trade on 125 unique same-coin live/replay pairs closed after the Sep 1-17
+# research tape. The robust through-zero fit pooled both books. Positive simulated returns
+# are reduced by 11.6%; negative returns are nearly unchanged. These factors feed paper P&L,
+# adaptive take-profit selection and the market guard. The bot-broken detector retains the
+# raw replay because its own 0.78 expectation already measures execution friction.
+[simulation]
+model = "trade-huber-pooled-20260919"
+positive_factor = 0.8844571237124664
+negative_factor = 0.9906639095130271
+
+# ---------------------------------------------------------------------------
+# Books
+# ---------------------------------------------------------------------------
+# A book is a creator-tax band and the filter that goes with it. Bands MUST be disjoint and
+# overlap is refused at load. That one rule is why nothing downstream needs an arbiter: a
+# launch has one creator tax, so it routes to at most one book, so there is no contention,
+# no shared position and no split fill anywhere.
+#
+# The band moved to untaxed-only on 2026-09-15: the 7d replay had taxed at -2.0% on n=4,918
+# against untaxed +5.1% on n=7,602, and the live taxed book was down $960 over 284 trades at
+# a 25% win rate. That is evidence, not proof, so the structure supports running both side by
+# side. Add a second [[books]] entry to do it.
+
+# THE BOOK THAT TRADES. Untaxed only, which is the live policy and the one with evidence
+# behind it.
+[[books]]
+id = "untaxed"
+min_creator_tax_bps = 0
+max_creator_tax_bps = 0
+# Exempt wallets are the signal: 1-2 exemptions lose in the current era, 3+ wins.
+min_exemptions = 3
+# One real loss on a template (tax:devbuy:exempts) blocks that template for an hour. Farms
+# pump first, so the market indicator cannot see them coming; the block catches the repeat.
+template_loss_block_ms = 3_600_000
+# 0.01 ETH. FUNDING IS A SPEC DECISION and
+# it lives here rather than in a switch, because "should this policy trade at all" is not a
+# question anyone should answer at 3am alone. The `size` switch still applies instantly and can
+# only ever REDUCE this: the effective stake is the lower of the two.
+# The session stop is not set here: it is size × risk.drawdown_stakes (2, from the calibrated
+# September search), so a later size edit cannot leave the stop behind.
+size_wei = "10000000000000000"
+
+# Sep 1-19 calibrated adaptive search, replayed through this book's own market guard and 2x
+# DD. The newest outcomes count most, one outlier contributes at most half a stake in either
+# direction, and unsupported 2x-3x targets are absent from the ladder.
+[books.exit]
+dead_coin_after_ms = 30_000
+
+[books.take_profit]
+otherwise = 1.75
+adaptive_half_life = 10
+adaptive_loss_cap = 0.5
+adaptive_profit_cap = 0.5
+adaptive_bars = [1.25, 1.36, 1.50, 1.75]
+
+[books.guard]
+pnl_bar = 1.75
+
+# THE MEASUREMENT ARM. Taxed launches, 50 to 200 bps, disjoint from the band above.
+#
+# WHY IT EXISTS AT ALL, given the taxed book is what lost the money. Because with one book,
+# changing the filter changes the sensor: every measurement after a band move is against a
+# different universe, and there is no way to tell a filter that stopped working from a market
+# that moved. Two bands side by side on the same evidence can answer that; one cannot. This
+# is the control group, and it is the 08-27 gate-starvation lesson applied to policy rather
+# than to screening.
+#
+# IT IS FUNDED AT THE SAME SIZE AS THE TRADING BOOK. Zero would keep it as a measurement
+# arm that never spends. A size here is the decision to put money on the control group.
+#
+# THE FLOOR IS 50 BECAUSE 50 IS THE BAND THAT ACTUALLY RAN, from 2026-08-28 to 2026-09-15,
+# as a compiled-in constant in the old bot's `minCreatorTaxBps`. A control arm is only a
+# control if it is the policy being controlled for.
+#
+# 1 was wrong and shipped here on 2026-09-16. It was picked to leave no gap under the band,
+# not because anything measured chose it, and no era has ever traded 1-49 bps. The old
+# config's own note says 1-200 netted $354 against 50-200 at $371 on that tape, so the cost
+# of the wrong floor was small; "small on one tape" is not "the same book".
+#
+# 1-49 BPS THEREFORE ROUTES NOWHERE, on purpose. The dashboard counts those launches as
+# `unrouted` rather than hiding them, because a band gap that nobody can see is how a filter
+# quietly stops covering the market.
+[[books]]
+id = "taxed"
+min_creator_tax_bps = 50
+max_creator_tax_bps = 200
+min_exemptions = 3
+template_loss_block_ms = 3_600_000
+# 0.01 ETH. Same stake as untaxed; the operator asked both policies live.
+# It still routes, observes and keeps its own ledger. The size switch can only reduce this.
+# Session stop is size × risk.drawdown_stakes, same as the trading book.
+size_wei = "10000000000000000"
+# Taxed keeps the shared 0.5 hard stop, the 20 s dead-coin exit and the adaptive seven-rung
+# take-profit ladder. Untaxed differs above on purpose; each book's simulator and guard use
+# that book's resolved policy.
+
+# ---------------------------------------------------------------------------
+# Defaults: the policy every book starts from
+# ---------------------------------------------------------------------------
+# EVERY BOOK INHERITS THESE FOUR TABLES, and every book may override any key in any of them.
+# They are not global policy: they are the starting point each [[books]] entry is resolved
+# against at load, key by key, one level deep. By the time anything reads a book it holds a
+# complete entry rule, exit stack, take-profit ladder and market guard, so no read site has a
+# default left to forget to apply.
+#
+# WHY IT IS SHAPED THIS WAY. Until 2026-09-16 these were top-level tables and every book shared
+# them, so two policies trading different coins had one entry rule, one exit stack, one
+# take-profit ladder and one market guard between them, and changing a key for one book changed
+# it for both. That is the same defect as the shared venue sensor, one layer down.
+#
+# AN OVERRIDE REPLACES KEYS, NOT TABLES. Writing [books.guard] with one key in it keeps the other
+# six from here, because "this book pauses at -3 instead" is what an operator means, not "this
+# book has no freshness rule".
+
+# ---------------------------------------------------------------------------
+# Entry
+# ---------------------------------------------------------------------------
+
+[defaults.entry]
+# The tax bracket clock. A buy sent after 3 s loses, so the arm fires 2 s after launch and
+# the remaining budget is the send path's.
+entry_delay_ms = 2_000
+# Wall-clock fallback when no feed block released the arm in time. Without it a quiet
+# sequencer stalls the entry indefinitely.
+entry_fallback_late_ms = 600
+# Refuse a launch already pumped this far above its fresh price. Graduation is the top, so
+# buying a curve that has already run is buying someone else's exit.
+max_entry_price_multiple = 4.5
+# Wide on purpose. There is no mempool here to be sandwiched by, so a loose bound costs
+# nothing and a tight one only ever refuses a fill we wanted.
+buy_slippage_bps = 5_000
+
+# ---------------------------------------------------------------------------
+# Exit
+# ---------------------------------------------------------------------------
+
+[defaults.exit]
+# The 45 s clock and the hard stop are what handle losers. The take profit handles winners.
+max_hold_ms = 45_000
+hard_stop_multiple = 0.5
+# Bail out of a flat coin. Judged right on a 45 s clock and wrong on a 90 s one, so this
+# number and max_hold_ms move together or not at all.
+dead_coin_after_ms = 20_000
+dead_coin_below_multiple = 1.03
+# Leave with this fraction of sellable supply left. Graduation slams the door: at zero the
+# curve refuses sells and the position cannot be exited at any price.
+graduation_exit_at = 0.12
+# The ONE ceiling on sell attempts. The old bot had two more conflicting literals beside it
+# (6 and 12) and no one number was the answer.
+max_sell_attempts = 20
+exit_retry_delay_ms = 300
+# 1 wei. The sell bound is pure cost: with no mempool it can only ever refuse, never protect.
+sell_final_min_quote_out_wei = "1"
+
+# ---------------------------------------------------------------------------
+# Take profit
+# ---------------------------------------------------------------------------
+
+[defaults.take_profit]
+# Used when the adaptive window cannot answer. Returned WITH a reason and ready=false, never
+# silently, because a fallback presented as a measurement is a guess wearing a lab coat.
+otherwise = 1.75
+# Whichever bar earned the most across the trailing 20 scored launches, pinned at open.
+adaptive_window = 20
+# Zero preserves the original selector: equal weights and no clipping. A book may override
+# these independently without changing another book's history or market indicator.
+adaptive_half_life = 0
+adaptive_loss_cap = 0
+adaptive_profit_cap = 0
+# Sorted, because the argmax reports the first best bar and an unsorted list would make the
+# winner depend on input order. The history 2.50 -> 1.36 -> 1.75 is the argument for adapting
+# at all.
+adaptive_bars = [1.25, 1.36, 1.50, 1.75, 2.00, 2.50, 3.00]
+
+# ---------------------------------------------------------------------------
+# Guard
+# ---------------------------------------------------------------------------
+# ONE venue guard, and it is the SIMULATOR. Every launch that routes to a book is replayed
+# through core/sim.ts against its own chain logs, at all seven candidate bars, and the answer
+# is in stakes. Each row contributes the column the adaptive selector pinned when that launch
+# was first watched, not one fixed column for all of them. It is not a counter and it never
+# was: the 1.21x touch rate the old bot also published was the secondary safety check, and it
+# is deleted rather than ported.
+#
+# SELECTED 2026-09-15: n15-m8-b-1.5-r1-h2-fresh, from the September 14 focused grid over 1,008
+# distinct rules and its September 15 unified-simulation release. Pause when the last 15 sum
+# strictly below -1.5; reopen when the freshest 8 sum strictly above +1. The research's six
+# execution stresses do not port: v2 has one execution clock, so "any may pause, all must
+# recover" collapses to the single verdict below.
+#
+# The old bot had three implementations of this rule, with three threshold sets, three
+# vocabularies for "stale" and three snapshot shapes, selected by two booleans that also did
+# other jobs. Flipping one of those booleans is what stopped trading for 23.8 hours and froze
+# the measurement pipeline for 20 minutes on 2026-09-16.
+
+[defaults.guard]
+# Scored launches in the main window, which is what PAUSES. Only launches this book would have
+# been allowed to buy count, because a sensor that sums a different universe from the book
+# holding the money is explaining a different bot.
+window = 15
+# The freshest slice of that same window, which is what REOPENS. Drawn from the rows above and
+# refused if it exceeds them: a book must not be released on evidence the pause never saw.
+# Recovery reads 8 rather than all 15 so a paused book is not waiting for old losses to age
+# out before a genuinely good run can lift it.
+recovery_window = 8
+# Hysteresis in STAKES, not percent. The MAIN window must sum strictly below shut_at to pause;
+# the FRESH window must sum strictly above open_at to reopen. Inside the band nothing moves.
+# open_at must exceed shut_at or the guard oscillates on a single sample.
+open_at = 1.0
+shut_at = -1.5
+# How long a launch is watched before it is replayed. The walk buys 20 blocks after launch and
+# runs 500 blocks past that, so anything under 52 s scores a path whose tail never arrived, and
+# the loader refuses it. The missing tail is where the winners are, so the error would be
+# one-directional: the market would read worse than it is exactly when it is good.
+settle_ms = 52_000
+# The window must fit inside this, measured from now back to its oldest row. Older evidence
+# FAILS CLOSED: it can neither pause nor reopen, and the book does not trade on it. The August
+# rule read stale as open, on the argument that 10 launches a day would halt the bot on the
+# calendar. Measured over the whole v2 tape on 2026-09-17 this venue settles 435 scored
+# launches a day on untaxed and 825 on taxed, and the main 15 reach back a median of 40 and 21
+# minutes, inside this bound 95% and 97% of the time. 180 minutes is the grid's own bound.
+fresh_ms = 10_800_000
+# The column a launch pins while the adaptive selector still has no window of its own. NOT the
+# ruler any more: each watched launch freezes the selector's answer and the venue sums those.
+# Must be one of take_profit.adaptive_bars or the column is never scored, which the loader
+# also refuses.
+pnl_bar = 1.75
+# Beyond this a STORED reading is stale and this book's guard has no opinion at entry time.
+# Distinct from fresh_ms above, which bounds the age of the evidence inside the window.
+max_reading_age_ms = 10_800_000
+
+# ---------------------------------------------------------------------------
+# Risk
+# ---------------------------------------------------------------------------
+
+[risk]
+# ZERO MEANS NO CAP. Leftover reserved slots from unbooked fills used to fill 14
+# and sit out later launches. A process that still requires 1..1000 will refuse
+# this spec and keep its old ceiling, which is the safe direction.
+max_concurrent = 0
+# Hard ceiling the size switch clamps to. P&L peaks here and is negative by 0.05.
+max_trade_size_wei = "20000000000000000"
+# ZERO MEANS NO CAP. A leftover deployedWei from an unbooked fill used to sit out
+# every later launch against 0.08 ETH (102 open-and-on misses on the 09-18 tape).
+# Do not ship this 0 onto a process that still treats 0 as "budget empty": that
+# process would refuse every buy. Ship the new code first.
+bankroll_wei = "0"
+# Session stop as a multiple of each book's size. This is the other shut trigger for
+# the same guard as 15 below -1.5: cash down this many stakes shuts the book, and the
+# same 8-fresh +1 reopens it. The Sep 1-17 trade-calibrated search tested off/2/3/4 under
+# six execution clocks. 2 was the best shared setting: both books stayed profitable in
+# all 24 book/era/clock cells and had the lowest worst drawdown. At the current 0.01 ETH
+# stake this is a 0.020 ETH stop per book. A stop under one stake fires on one ordinary
+# loss, which is why the validator's floor remains 1.
+# Per-book stop = size_wei × this. Wallet bar = the sum of those stops.
+drawdown_stakes = 2
+# THE BOT-BROKEN HALT. Losing money is a market; losing money the same coins did not lose is a
+# bug in us, and the two need opposite answers. A bad market reverses on its own, so the venue
+# pause lifts itself; a bug does not, so this one never does.
+#
+# It compares each closed trade against the replay of the same coin at the rung that trade
+# actually pinned, over the last `broken_window` pairs, on the MEANS rather than pair by pair: one
+# 2.36x runner moved v1's per-trade mean by 215 points of a single stake.
+#
+# IT WAS DECLARED AND DEAD UNTIL 2026-09-17. These two keys parsed, `broken` was a HaltKind ranked
+# above `drawdown`, `BrokenReading` had a type and a sensor slot, and nothing computed any of it.
+broken_window = 20
+# What real money makes per unit of replay: 0.78 over 463 paired trades in September, 0.80 over
+# 145 in August. Not a fudge — the replay pays no gas, no slippage and enters at a fixed block
+# offset, so it is EXPECTED to read high, and the alarm is the residual after that expectation.
+# Fitted at 0.003-0.01 ETH. This book stakes 0.01, at the measured upper bound.
+broken_factor = 0.78
+# Points a trade below its own replay before the bot is called broken. 15 fires 19 minutes into
+# the 2026-09-06 same-block log drop (we made -7.1% where the same coins replayed at +14.4%) and
+# nowhere else in that week, including days when both sides lost together.
+broken_gap_pp = 15
+# Refuse entry when the evidence is older than this. Both are entry-time freshness bounds,
+# not exit rules: an open position keeps trading on what it has.
+max_logs_staleness_ms = 3_000
+max_overlay_age_ms = 1_500
+
+# ---------------------------------------------------------------------------
+# Clock
+# ---------------------------------------------------------------------------
+
+[clock]
+# How often the driver emits a clock event WHILE SOMETHING IS OPEN. An idle bot emits none,
+# so the tape does not fill with nothing happening. This is the only trigger the pure time
+# rules (max hold, dead-coin bail) have, so it bounds their resolution.
+period_ms = 250

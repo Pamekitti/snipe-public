@@ -1,0 +1,5 @@
+import { createHash } from 'node:crypto'
+import { readFileSync } from 'node:fs'
+const files=['../strategy/counterfactual.ts','../strategy/pool-evidence.ts','../strategy/execution-model.ts','../strategy/execution-scenarios.ts','../strategy/scenario-guard.ts','../strategy/scenario-account.ts','../strategy/paper-account.ts','../strategy/exit-evaluation.ts','../strategy/entry.ts','../strategy/fresh-recovery.ts','../strategy/fresh-policy.ts','../state/curve.ts','../abi.ts','./arrivals.ts','./cadence.ts','./drawdown-history.ts','./recovery.ts','./selector.ts','../strategy/takeprofit.ts','./processor.ts','./reporting.ts','./scenario-observer.ts','./scenario-controller.ts','./store.ts','./worker.ts','./service.ts','../bot.ts','../strategy/risk.ts','../strategy/gate.ts','./validation.ts','../../scripts/execution-worker.ts','../../scripts/verify-execution-scenarios.ts']
+files.push('./report-worker.ts','../rpc/read.ts')
+export const MODEL_HASH=createHash('sha256').update(files.map(p=>readFileSync(new URL(p,import.meta.url),'utf8')).join('\n')).digest('hex')

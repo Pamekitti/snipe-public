@@ -1,0 +1,16 @@
+{
+  "name": "research",
+  "version": "1.0.0",
+  "description": "Historical Robinhood Chain research utilities retained for reproducibility.",
+  "scripts": {
+    "check": "node --check launches.mjs && node --check pull_more.mjs && node --check pull_trades.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "viem": "^2.55.17"
+  },
+  "private": true,
+  "type": "module"
+}

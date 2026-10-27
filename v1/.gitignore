@@ -1,0 +1,19 @@
+node_modules/
+.env
+data/*.db
+data/*.db-wal
+data/*.db-shm
+logs/*.jsonl
+logs/*.log
+*.log
+
+dashboard-dist/
+playwright-report/
+test-results/
+scripts/.push-state.json
+**/__pycache__/
+data/.env.*
+data/*.db.*
+
+# SQLite files produced when test databases use the :memory: source name.
+/:memory:.simulation.db*

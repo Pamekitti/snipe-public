@@ -1,0 +1,14 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Installed dependencies are outside the publication source tree"
+paths = ['''(^|/)node_modules/''']
+
+[[allowlists]]
+description = "Public EVM contract addresses and the reviewed TokenLaunched event topic are not API keys"
+regexTarget = "secret"
+regexes = [
+  '''^0x[0-9a-fA-F]{37,40}$''',
+  '''^0x8d4aad4953d0ca700d468f3753aa14432d1b35b43ec6409f051fb6aa43a89607$''',
+]

@@ -1,0 +1,376 @@
+{
+  "version": "observed-error-profile-20260913-v1",
+  "status": "diagnostic_only",
+  "scenario": "q5000-rank0.5-sell1200-after",
+  "referenceOnly": true,
+  "promotedDefault": false,
+  "prospectivelyValidated": false,
+  "futureErrorBounds": null,
+  "modelHash": "a786d53c6a59dad0060d983bb91a4f1d805d2f056849b948618084f655fdabad",
+  "dataFromUtc": "2026-09-01T00:00:00Z",
+  "dataThroughUtc": "2026-09-13T15:30:00Z",
+  "actualAttemptCount": 1190,
+  "matchedAttemptCount": 1182,
+  "unreconciledActualLabels": 8,
+  "unreconciledRecordedNetWei": "161774931513877817",
+  "metrics": {
+    "Sep4-7": {
+      "known": 900,
+      "signedErrorPp": {
+        "n": 900,
+        "sum": -22.233815371549575,
+        "mean": -0.02470423930172175,
+        "median": -0.8015834831947775,
+        "sd": 36.583351260271534,
+        "p95": 38.9848868683734
+      },
+      "absoluteErrorPp": {
+        "n": 900,
+        "sum": 12432.03285364129,
+        "mean": 13.813369837379211,
+        "median": 2.95137735443995,
+        "sd": 33.87212376144443,
+        "p95": 64.25311482885967
+      },
+      "signAgreement": 0.91,
+      "exitReasonAgreement": 0.7833333333333333,
+      "entryAcceptanceAgreement": 0.9633333333333334,
+      "exitTimingErrorMs": {
+        "n": 900,
+        "sum": -36072967,
+        "mean": -40081.07444444444,
+        "median": -12.5,
+        "sd": 538915.4578216422,
+        "p95": 4098
+      },
+      "reproductionPct": {
+        "winners": 96.5,
+        "losers": 103.50515463917526,
+        "profit_wei": 99.0015524159974,
+        "loss_wei": 107.53049440534778
+      },
+      "actual": {
+        "n": 900,
+        "net_wei": "551014537707849791",
+        "profit_wei": "1680079421444348030",
+        "loss_wei": "1129064883736498239",
+        "drawdown_wei": "202363098832433135",
+        "winners": 400,
+        "losers": 485,
+        "cash_eth": {
+          "n": 900,
+          "sum": 0.5510145377078498,
+          "mean": 0.0006122383752309442,
+          "median": -2.4825023651000002e-05,
+          "sd": 0.0059332554029179006,
+          "p95": 0.010302048272694347
+        }
+      },
+      "predicted": {
+        "n": 900,
+        "net_wei": "449215657412590203",
+        "profit_wei": "1663304709051611916",
+        "loss_wei": "1214089051639021713",
+        "drawdown_wei": "228283425390939772",
+        "winners": 386,
+        "losers": 502,
+        "cash_eth": {
+          "n": 900,
+          "sum": 0.44921565741259023,
+          "mean": 0.0004991285082362113,
+          "median": -6.38887454501925e-05,
+          "sd": 0.005894112182742829,
+          "p95": 0.010471013027968008
+        }
+      },
+      "falseWinnersActualLoss": 18,
+      "falseLosersActualProfit": 38,
+      "falseProfitsActualZero": 9,
+      "netErrorWei": "-101798880295259588",
+      "drawdownErrorWei": "25920326558506637",
+      "netErrorPctOfAbsoluteActual": -18.474808435859053,
+      "drawdownErrorPct": 12.808820732662321,
+      "scenarioNetRangeWei": [
+        "109982462415748517",
+        "1071316764879014318"
+      ]
+    },
+    "Sep8-13": {
+      "known": 282,
+      "signedErrorPp": {
+        "n": 282,
+        "sum": 69.69258527122152,
+        "mean": 0.24713682720291316,
+        "median": -0.07486444445000001,
+        "sd": 18.773240044112804,
+        "p95": 17.882387851492464
+      },
+      "absoluteErrorPp": {
+        "n": 282,
+        "sum": 1866.8926357728894,
+        "mean": 6.620186651676913,
+        "median": 0.77020816325185,
+        "sd": 17.564538049808032,
+        "p95": 36.77518194266293
+      },
+      "signAgreement": 0.9468085106382979,
+      "exitReasonAgreement": 0.8439716312056738,
+      "entryAcceptanceAgreement": 1.0,
+      "exitTimingErrorMs": {
+        "n": 282,
+        "sum": -350506,
+        "mean": -1242.9290780141844,
+        "median": 94.5,
+        "sd": 9032.612105810085,
+        "p95": 5770
+      },
+      "reproductionPct": {
+        "winners": 101.40845070422536,
+        "losers": 99.5260663507109,
+        "profit_wei": 107.50648127338668,
+        "loss_wei": 103.51693508219077
+      },
+      "actual": {
+        "n": 282,
+        "net_wei": "-408749632632093467",
+        "profit_wei": "709704185029649421",
+        "loss_wei": "1118453817661742888",
+        "drawdown_wei": "418339938748486804",
+        "winners": 71,
+        "losers": 211,
+        "cash_eth": {
+          "n": 282,
+          "sum": -0.40874963263209346,
+          "mean": -0.0014494667823833102,
+          "median": -0.0021109951102160104,
+          "sd": 0.008480357581063155,
+          "p95": 0.015163372439528396
+        }
+      },
+      "predicted": {
+        "n": 282,
+        "net_wei": "-394811115577849163",
+        "profit_wei": "762977996775341590",
+        "loss_wei": "1157789112353190753",
+        "drawdown_wei": "400982802633251813",
+        "winners": 72,
+        "losers": 210,
+        "cash_eth": {
+          "n": 282,
+          "sum": -0.39481111557784915,
+          "mean": -0.0014000394169427276,
+          "median": -0.0022587018989790987,
+          "sd": 0.009364915407240717,
+          "p95": 0.016230781800305072
+        }
+      },
+      "falseWinnersActualLoss": 8,
+      "falseLosersActualProfit": 7,
+      "falseProfitsActualZero": 0,
+      "netErrorWei": "13938517054244304",
+      "drawdownErrorWei": "-17357136115234991",
+      "netErrorPctOfAbsoluteActual": 3.410037818135498,
+      "drawdownErrorPct": -4.149050690010834,
+      "scenarioNetRangeWei": [
+        "-551497453726518004",
+        "-44254977341578720"
+      ]
+    },
+    "September": {
+      "known": 1182,
+      "signedErrorPp": {
+        "n": 1182,
+        "sum": 47.458769899671935,
+        "mean": 0.040151243569942416,
+        "median": -0.51993807325952,
+        "sd": 33.20603913629197,
+        "p95": 34.64230725564
+      },
+      "absoluteErrorPp": {
+        "n": 1182,
+        "sum": 14298.92548941418,
+        "mean": 12.097229686475616,
+        "median": 2.45573801158325,
+        "sd": 30.92209190967643,
+        "p95": 55.84795203135676
+      },
+      "signAgreement": 0.9187817258883249,
+      "exitReasonAgreement": 0.7978003384094755,
+      "entryAcceptanceAgreement": 0.9720812182741116,
+      "exitTimingErrorMs": {
+        "n": 1182,
+        "sum": -36423473,
+        "mean": -30815.120981387478,
+        "median": 19.0,
+        "sd": 470504.49907839793,
+        "p95": 4098
+      },
+      "reproductionPct": {
+        "winners": 97.23991507430998,
+        "losers": 102.29885057471265,
+        "profit_wei": 101.52729725210595,
+        "loss_wei": 105.53318922403645
+      },
+      "actual": {
+        "n": 1182,
+        "net_wei": "142264905075756324",
+        "profit_wei": "2389783606473997451",
+        "loss_wei": "2247518701398241127",
+        "drawdown_wei": "431765377760543710",
+        "winners": 471,
+        "losers": 696,
+        "cash_eth": {
+          "n": 1182,
+          "sum": 0.14226490507575631,
+          "mean": 0.00012035947975952311,
+          "median": -0.000249943498397372,
+          "sd": 0.006684443571450803,
+          "p95": 0.0121024123937935
+        }
+      },
+      "predicted": {
+        "n": 1182,
+        "net_wei": "54404541834741040",
+        "profit_wei": "2426282705826953506",
+        "loss_wei": "2371878163992212466",
+        "drawdown_wei": "498939177101719175",
+        "winners": 458,
+        "losers": 712,
+        "cash_eth": {
+          "n": 1182,
+          "sum": 0.054404541834741034,
+          "mean": 4.602753116306348e-05,
+          "median": -0.0003099538453368645,
+          "sd": 0.00692590434856199,
+          "p95": 0.011986868929242415
+        }
+      },
+      "falseWinnersActualLoss": 26,
+      "falseLosersActualProfit": 45,
+      "falseProfitsActualZero": 9,
+      "netErrorWei": "-87860363241015284",
+      "drawdownErrorWei": "67173799341175465",
+      "netErrorPctOfAbsoluteActual": -61.7582833898701,
+      "drawdownErrorPct": 15.557940215028063,
+      "scenarioNetRangeWei": [
+        "-441514991310769487",
+        "1027061787537435598"
+      ]
+    },
+    "Final six hours": {
+      "known": 32,
+      "signedErrorPp": {
+        "n": 32,
+        "sum": 54.74742580277821,
+        "mean": 1.710857056336819,
+        "median": -0.03518143685,
+        "sd": 10.079228100987596,
+        "p95": 26.726297627060074
+      },
+      "absoluteErrorPp": {
+        "n": 32,
+        "sum": 157.36125153310283,
+        "mean": 4.9175391104094635,
+        "median": 0.8347418502449675,
+        "sd": 8.924686537077427,
+        "p95": 26.726297627060074
+      },
+      "signAgreement": 0.96875,
+      "exitReasonAgreement": 0.78125,
+      "entryAcceptanceAgreement": 1.0,
+      "exitTimingErrorMs": {
+        "n": 32,
+        "sum": -74358,
+        "mean": -2323.6875,
+        "median": -1206.5,
+        "sd": 8888.8950742558,
+        "p95": 15794
+      },
+      "reproductionPct": {
+        "winners": 133.33333333333334,
+        "losers": 96.55172413793103,
+        "profit_wei": 146.5159725827961,
+        "loss_wei": 96.85046890628034
+      },
+      "actual": {
+        "n": 32,
+        "net_wei": "-138493216454441714",
+        "profit_wei": "13263931215793685",
+        "loss_wei": "151757147670235399",
+        "drawdown_wei": "138493216454441714",
+        "winners": 3,
+        "losers": 29,
+        "cash_eth": {
+          "n": 32,
+          "sum": -0.1384932164544417,
+          "mean": -0.004327913014201303,
+          "median": -0.0036334233278605154,
+          "sd": 0.004958149032236897,
+          "p95": 0.004199900479575121
+        }
+      },
+      "predicted": {
+        "n": 32,
+        "net_wei": "-127543731293886071",
+        "profit_wei": "19433777823533209",
+        "loss_wei": "146977509117419280",
+        "drawdown_wei": "127543731293886071",
+        "winners": 4,
+        "losers": 28,
+        "cash_eth": {
+          "n": 32,
+          "sum": -0.12754373129388608,
+          "mean": -0.00398574160293394,
+          "median": -0.004111546922988802,
+          "sd": 0.004991213209443007,
+          "p95": 0.005741306337384875
+        }
+      },
+      "falseWinnersActualLoss": 1,
+      "falseLosersActualProfit": 0,
+      "falseProfitsActualZero": 0,
+      "netErrorWei": "10949485160555643",
+      "drawdownErrorWei": "-10949485160555643",
+      "netErrorPctOfAbsoluteActual": 7.906152691715086,
+      "drawdownErrorPct": -7.906152691715086,
+      "scenarioNetRangeWei": [
+        "-132606816488890473",
+        "-111599903190577207"
+      ]
+    }
+  },
+  "provenance": {
+    "v1/data/research/20260913-both-periods-v1/run-freeze.json": "63ec21b675269bcfda9e05866be59b4053bd4736cefa6825b0362a44bf1c622a",
+    "v1/data/research/20260913-both-periods-v1/protocol.json": "b170f6e57a90783a9197f0fbb4c0f6ab56f4e900020416c448bf3c3f0cf62aff",
+    "v1/data/research/20260913-both-periods-v1/scorecards.json": "6ffd02acda5c98a06e4fb73e28a913559d5bbd0c60426932eac1180263ab4f1f",
+    "v1/data/research/20260913-both-periods-v1/coverage.json": "a66eb500cdba78108a440addf4a1fd15ad661a588d0a4dd9c53ed3e9e46df41d",
+    "v1/data/research/20260913-both-periods-v1/results/q5000-rank0.5-sell1200-after.json": "d778cf0412037ef1d28311dbe1c7ea2ee1a05b622b7afc3b23becf97f0d44748"
+  },
+  "errorDefinition": "100 * (simulated net wei - actual net wei) / recorded stake wei; absolute error is its absolute value. Percentiles use the existing describe() empirical index min(n-1,int(0.95*n)).",
+  "use": "Historical diagnostic reference only. Do not convert into a flat haircut, confidence interval, expected future deviation, or permission for live trading.",
+  "settings": {
+    "sendDelay": "recorded t_sent minus entryAt",
+    "buyInclusionMs": 300,
+    "confirmationFromSendMs": 600,
+    "observationMs": 600,
+    "buyOrderFraction": 0.5,
+    "sellMs": 1200,
+    "sameTimeOrder": "after",
+    "quoteReconstructionSlippageBps": 5000,
+    "submittedMinimum": "recorded value unchanged",
+    "pollMs": 50,
+    "stakeAndTakeProfit": "recorded and pinned per attempt",
+    "maxHoldMs": 45000,
+    "hardStopMultiple": 0.5,
+    "deadCoinAfterMs": 20000,
+    "deadCoinBelowMult": 1.03,
+    "maxEntryMultiple": 4.5,
+    "costs": "preceding component medians; latest 100 eligible successful receipt pairs; six-hour embargo; minimum 20 pairs",
+    "approvalProxy": "preceding median sell gas if fewer than 20 preceding approval records",
+    "approvalDelayMs": 600,
+    "retryMs": 500,
+    "maxSellAttempts": 20,
+    "assumedFailedSellAttempts": 0,
+    "executionHorizonMs": 180000
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "pons-sniper",
+  "version": "1.0.0",
+  "description": "Pons V2 bonding-curve sniper on Robinhood Chain",
+  "main": "src/index.ts",
+  "scripts": {
+    "bot": "tsx src/index.ts",
+    "canary": "tsx scripts/canary.ts",
+    "validate": "tsx scripts/validate.ts",
+    "newepoch": "tsx scripts/newepoch.ts",
+    "observe": "tsx scripts/observe.ts",
+    "stats": "tsx scripts/stats.ts",
+    "reconstruct": "tsx scripts/reconstruct.ts",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^17.4.2",
+    "undici": "^8.10.0",
+    "viem": "^2.55.17",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.2.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "uplot": "^1.6.32",
+    "vitest": "^4.1.10"
+  },
+  "type": "module",
+  "private": true
+}
